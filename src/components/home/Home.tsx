@@ -1,5 +1,5 @@
 import { HomePageText } from "@/assets";
-import useMediaQuery from "@/mediaQuery/UseMediaQuery";
+//import useMediaQuery from "@/mediaQuery/UseMediaQuery";
 import ActionButton from "@/shared/Button/actionButton";
 import { SelectedPage } from "@/shared/types";
 import AnchorLink from "react-anchor-link-smooth-scroll";
@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const Home = ({ setSelectedPage }: Props) => {
-  const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
+  //const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
   return (
     <section id="home" className="gap-16 py-10 md:h-full md:pb-0">
       <div>
