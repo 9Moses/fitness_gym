@@ -24,14 +24,16 @@ function App() {
   }, []);
 
   return (
-    <div className="app bg-slate-950">
-      <Navbar
-        isTopOfPage={isTopOfPage}
-        selectedPage={selectedPage}
-        setSelectedPage={setSelectedPage}
-      />
-      <Home setSelectedPage={setSelectedPage} />
-    </div>
+    <>
+      <div className="app bg-slate-950">
+        <Navbar
+          isTopOfPage={isTopOfPage}
+          selectedPage={selectedPage}
+          setSelectedPage={setSelectedPage}
+        />
+        <Home setSelectedPage={setSelectedPage} />
+      </div>
+    </>
   );
 }
 
