@@ -4,6 +4,7 @@ import ActionButton from "@/shared/Button/actionButton";
 import { SelectedPage } from "@/shared/types";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { Sponsors } from "./Sponsors";
+import { motion } from "framer-motion";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -12,10 +13,23 @@ type Props = {
 export const Home = ({ setSelectedPage }: Props) => {
   const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
   return (
-    <section id="home" className="gap-16 bg-slate-950 py-10 md:h-full md:pb-0">
-      <div className="md:flex mx-auto w-5/6 items-center justify-center md:h-5/6">
+    <section id="home" className="gap-16 bg-slate-950 py-10 md:h-full md:pb-10">
+      <motion.div
+        className="md:flex mx-auto w-5/6 items-center justify-center md:h-5/6"
+        onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
+      >
         <div className="mt-32 md:basis-3/5 ">
-          <div className="md:-mt-20">
+          <motion.div
+            className="md:-mt-20"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, x: -50 },
+              visible: { opacity: 1, x: 0 },
+            }}
+          >
             <img
               src={HomePageText}
               alt="home-text-page"
@@ -27,8 +41,19 @@ export const Home = ({ setSelectedPage }: Props) => {
               healthier you.Unlock your potential. Get fit with us. Transform
               your body. Start your journey today
             </p>
-          </div>
-          <div className="mt-8 flex items-center gap-8 md:justify-start">
+          </motion.div>
+
+          <motion.div
+            className="mt-8 flex items-center gap-8 md:justify-start"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, x: -50 },
+              visible: { opacity: 1, x: 0 },
+            }}
+          >
             <ActionButton setSelectedPage={setSelectedPage}>
               Join Now
             </ActionButton>
@@ -39,14 +64,14 @@ export const Home = ({ setSelectedPage }: Props) => {
             >
               <p>Learn More</p>
             </AnchorLink>
-          </div>
+          </motion.div>
         </div>
         <div className="flex basis-3/5 justify-center">
           <img src={HomePage} alt="home-gym" />
         </div>
-      </div>
+      </motion.div>
       {isAboveMediumScreens && (
-        <div className="h-[150px] w-full bg-black py-10">
+        <div className="h-[140px] w-full bg-black py-10 mt-3 ">
           <Sponsors />
         </div>
       )}
