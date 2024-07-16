@@ -13,3 +13,15 @@ body,
   font-family: "DM sans", sans-serif;
   @apply text-white;
 }
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-700 rounded-xl;
+}
